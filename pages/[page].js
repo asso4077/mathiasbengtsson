@@ -43,7 +43,7 @@ export async function getStaticPaths( preview = false ) {
 }
 
 export async function getStaticProps({ params, preview = false }) {
-  const query = { content_type: 'page', 'fields.slug': params.page, limit: 1, include: 3 }
+  const query = { content_type: 'page', 'fields.slug': params.page, limit: 1, include: 3, 'fields.slug[ne]': 'index' }
   const page = await fetchEntries(preview, query)
 
   const index = (await fetchIndex(preview)) ?? []
