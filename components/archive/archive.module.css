@@ -1,5 +1,28 @@
 .listItem {
-  display: flex;
+  display: grid;
   justify-content: space-between;
   cursor: pointer;
+  grid-template-columns: 2.5em 1.5fr auto;
+  gap: .5em;
+}
+
+.listItem span {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+
+@media screen and (min-width: 670px) {
+  .listItem {
+    grid-template-columns: 3em 1.5fr 1fr 1fr 16em;
+  }
+
+  .listItem span:nth-child(4) {
+    text-align: inherit;
+  }
+
+  .listItem span:nth-child(5) {
+    text-align: right;
+  }
 }

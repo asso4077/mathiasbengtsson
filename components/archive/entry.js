@@ -23,11 +23,11 @@ export default function Entry({ data }) {
         query: { artwork: slug },
       })}
       >
-      <span>{name}</span>
-      <span>{type}</span>
-      <span>{material}</span>
-      <span className="md">{dimensions}</span>
-      <span>{formatDate(releaseDate)}</span>
+      <span className={styles.date}>{new Date(releaseDate).getFullYear()}</span>
+      <span className={styles.name}>{name}</span>
+      <span className={`${styles.type} md`}>{type}</span>
+      <span className={styles.material}>{material}</span>
+      <span className={`${styles.dimensions} md`}>{dimensions}</span>
     </li>
   )
 }
