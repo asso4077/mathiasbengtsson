@@ -12,10 +12,24 @@
   overflow: hidden;
 }
 
+.popUpAsset {
+  position: fixed;
+  right: 0;
+  max-width: 500px;
+  max-height: 500px;
+  width: auto;
+  height: auto;
+  transition: none;
+  z-index: 4;
+}
+
+.inactive {
+  display: none;
+}
 
 @media screen and (min-width: 670px) {
   .listItem {
-    grid-template-columns: 3em 1.5fr 1fr 1fr 16em;
+    grid-template-columns: 2.5em 1.3fr .6fr 1fr 16em;
   }
 
   .listItem span:nth-child(4) {

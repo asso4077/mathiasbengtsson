@@ -8,7 +8,7 @@ export default function Entry({ data, display, i, state }) {
   const [progress, setProgress] = state
 
   const { ref, inView, entry } = useInView({
-    threshold: 0,
+    threshold: .5,
   })
 
   useEffect(() => {
@@ -16,8 +16,6 @@ export default function Entry({ data, display, i, state }) {
       setProgress(i)
     }
   }, [inView])
-
-  console.log(artwork)
 
   const isLandscape = media.fields.file.details.image.width > media.fields.file.details.image.height
 

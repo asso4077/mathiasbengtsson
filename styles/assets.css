@@ -14,7 +14,7 @@ figcaption {
 img {
   width: 100%;
   height: auto;
-  transition: opacity 200ms 400ms;
+  transition: opacity 200ms 100ms;
 }
 
 .margins.right-aligned {

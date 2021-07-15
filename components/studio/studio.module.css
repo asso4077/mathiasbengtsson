@@ -19,7 +19,7 @@
 }
 
 .asset {
-
+  overflow: hidden;
 }
 
 .landscape {
@@ -27,6 +27,7 @@
 }
 
 .portrait {
+  height: calc(100vh - 20rem);
   width: 40vw;
 }
 
