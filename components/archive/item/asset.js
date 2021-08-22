@@ -1,7 +1,7 @@
 import styles from './assets.module.css'
 import { Img } from '../../../lib/image'
 
-export default function Asset({ data }) {
+export default function Asset({ data, i }) {
   if (!data.fields) return null
 
   const {
@@ -29,6 +29,9 @@ export default function Asset({ data }) {
           {caption}
         </figcaption>
       }
+      <div className={styles.reference}>
+        {i + 1}
+      </div>
     </figure>
   )
 }

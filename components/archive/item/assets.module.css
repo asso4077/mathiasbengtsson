@@ -1,4 +1,5 @@
 .introduction {
+  scroll-snap-align: start;
   min-height: 50vh;
   padding-top: 0;
 }
@@ -14,12 +15,27 @@
 .asset {
   height: 100vh;
   scroll-snap-align: start;
+  scroll-snap-stop: always;
   overflow: hidden;
+  position: relative;
+}
+
+.reference {
+  position: absolute;
+  right: 1em;
+  top: .6em;
+}
+
+.related {
+  position: relative;
+  height: 100vh;
+  scroll-snap-align: start;
+  padding: 0 var(--outerMargin);
 }
 
 @media screen and (min-width: 670px) {
   .container {
-    scroll-snap-type: proximity;
-    scroll-snap-type: y proximity;
+    scroll-snap-type: mandatory;
+    scroll-snap-type: y mandatory;
   }
 }

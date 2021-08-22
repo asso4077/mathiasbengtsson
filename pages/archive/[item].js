@@ -5,10 +5,12 @@ import { APP_NAME, HOME_OG_IMAGE_URL, PAGE_DESCRIPTION } from '../../lib/const'
 import { fetchEntries, fetchAllSlugs, fetchIndex } from '../../lib/api'
 import Item from '../../components/archive/item/index'
 
-export default function Page({ page, preview, index }) {
+export default function Page({ page, preview, index, archive }) {
+  console.log(archive)
   const router = useRouter()
   if (!router.isFallback && !page) {return <p>Error</p>}
   if (!page.slug) return <p>Error</p>
+
 
   return (
     <Layout preview={preview} page={page.slug}>
@@ -26,7 +28,7 @@ export default function Page({ page, preview, index }) {
           content={page.description ?? PAGE_DESCRIPTION}
         />
       </Head>
-      <Item data={page} index={index} />
+      <Item data={page} archive={archive} index={index} />
     </Layout>
   )
 }
@@ -42,15 +44,19 @@ export async function getStaticPaths( preview = false ) {
 }
 
 export async function getStaticProps({ params, preview = false }) {
-  const query = { content_type: 'artwork', 'fields.slug': params.item, limit: 1, include: 5 }
+  const query = { content_type: 'artwork', include: 5, limit: 1, 'fields.slug': params.item }
   const page = await fetchEntries(preview, query)
 
   const index = (await fetchIndex(preview)) ?? []
+
+  const query2 = { content_type: 'page', 'fields.slug': 'archive', limit: 1, include: 3 }
+  const archive = await fetchEntries(preview, query2)
 
   return {
     props: {
       preview,
       page: page.items[0].fields ?? null,
+      archive: archive.items[0].fields ?? null,
       index: index.items[0].fields
     },
   }

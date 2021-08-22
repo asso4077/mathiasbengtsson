@@ -78,5 +78,6 @@ img {
 @media screen and (min-width: 670px) {
   .margins {
     width: 75%;
+    padding-right: 25%;
   }
 }

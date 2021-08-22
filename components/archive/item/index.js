@@ -2,8 +2,9 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Asset from './asset'
 import styles from './assets.module.css'
 import Header from '../../header/index'
+import Archive from '../index'
 
-export default function Item({ data, index }) {
+export default function Item({ data, index, archive }) {
   const {
     heroImage,
     material,
@@ -25,8 +26,12 @@ export default function Item({ data, index }) {
         {documentToReactComponents(textField)}
     </section>
       {assets.map((asset, i) => (
-        <Asset data={asset} key={i} />
+        <Asset data={asset} key={i} i={i} />
       ))}
+      <div className={styles.related}>
+        <Header index={index} />
+        <Archive data={archive} mode={"relative"} />
+      </div>
     </article>
   )
 }

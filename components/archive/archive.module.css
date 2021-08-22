@@ -1,4 +1,17 @@
+.list {
+  padding-top: 4em;
+  background: white;
+  max-height: 100vh;
+  overflow: scroll;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: var(--outerMargin);
+}
+
 .listItem {
+  position: relative;
   display: grid;
   justify-content: space-between;
   cursor: pointer;
@@ -10,17 +23,20 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  position: relative;
+  z-index: 2;
 }
 
 .popUpAsset {
   position: fixed;
-  right: 0;
-  max-width: 500px;
-  max-height: 500px;
-  width: auto;
-  height: auto;
+  left: 50%;
+  top: calc(50% - 2em);
+  transform: translate(-50%, -50%);
+  width: calc(80vmin - 4em);
+  height: calc(80vmin - 4em);
+  object-fit: contain;
   transition: none;
-  z-index: 4;
+  pointer-events: none;
 }
 
 .inactive {

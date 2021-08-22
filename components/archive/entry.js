@@ -17,8 +17,6 @@ export default function Entry({ data }) {
     slug
   } = data.fields
 
-  console.log(heroImage)
-
   return (
     <li
       className={styles.listItem}
