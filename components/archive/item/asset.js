@@ -1,5 +1,6 @@
 import styles from './assets.module.css'
 import { Img } from '../../../lib/image'
+import slugify from 'react-slugify'
 
 export default function Asset({ data, i }) {
   if (!data.fields) return null
@@ -8,14 +9,17 @@ export default function Asset({ data, i }) {
     asset,
     caption,
     fullscreen,
-    rightAligned
+    rightAligned,
+    layout
   } = data.fields
+
+  console.log(slugify(layout))
 
 
   const position = rightAligned === true ? " right-aligned " : rightAligned === false ? " left-aligned " : " centered "
   const isFullscreen = fullscreen ? "fullscreen" : "margins"
   return (
-    <figure className={styles.asset + position + isFullscreen}>
+    <figure className={`${styles.asset} ${slugify(layout)}`}>
       {asset?.fields?.file &&
         <Img
           src={asset.fields.file.url}

@@ -75,6 +75,11 @@ img {
   opacity: 0;
 }
 
+.left-aligned, .fullscreen-left-aligned {
+  width: 75%;
+  padding-right: 25%;
+}
+
 @media screen and (min-width: 670px) {
   .margins {
     width: 75%;

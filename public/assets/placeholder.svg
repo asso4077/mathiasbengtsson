@@ -14,7 +14,6 @@
       stroke-width:0.5px;}
     </style>
   </defs>
-  <rect class="cls-2" x="0" y="0" width="200" height="200"/>
   <line class="cls-1" x1="0" y1="0" x2="200" y2="200"/>
   <line class="cls-1" x1="0" y1="200" x2="200" y2="0"/>
 </svg>
