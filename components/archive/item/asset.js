@@ -19,7 +19,7 @@ export default function Asset({ data, i }) {
   const position = rightAligned === true ? " right-aligned " : rightAligned === false ? " left-aligned " : " centered "
   const isFullscreen = fullscreen ? "fullscreen" : "margins"
   return (
-    <figure className={`${styles.asset} ${slugify(layout)}`}>
+    <figure className={`${styles.asset} asset-grid ${slugify(layout)}`}>
       {asset?.fields?.file &&
         <Img
           src={asset.fields.file.url}
@@ -33,7 +33,7 @@ export default function Asset({ data, i }) {
           {caption}
         </figcaption>
       }
-      <div className={styles.reference}>
+      <div className={"reference"}>
         {i + 1}
       </div>
     </figure>

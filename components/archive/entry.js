@@ -2,6 +2,7 @@ import styles from './archive.module.css'
 import { useRouter } from 'next/router'
 import { formatDate } from '../../lib/utils'
 import { useState } from 'react'
+import Image from 'next/image'
 
 export default function Entry({ data }) {
   const [hover, setHover] = useState(false)
@@ -16,6 +17,17 @@ export default function Entry({ data }) {
     type,
     slug
   } = data.fields
+
+  const contentful = ({ src, quality, width }) => {
+    const params = [
+      `w=${width}`,
+      `q=${quality ?? 75}`,
+      `fm=jpg`,
+      `fl=progressive`
+    ]
+
+    return `${src}?${params.join('&')}`
+  }
 
   return (
     <li
@@ -33,7 +45,15 @@ export default function Entry({ data }) {
       <span className={styles.material}>{material}</span>
       <span className={`${styles.dimensions} md`}>{dimensions}</span>
       {heroImage?.fields &&
-        <img className={`${styles.popUpAsset} ${hover ? styles.active : styles.inactive}`} src={heroImage?.fields.file.url} alt="" />
+        <div className={`${styles.popUpAsset} ${hover ? styles.active : styles.inactive}`}>
+          <Image
+            src={heroImage?.fields.file.url}
+            alt={heroImage?.fields.description ?? "No description available of this image"}
+            loader={contentful}
+            layout={"fill"}
+            objectFit={"contain"}
+            />
+        </div>
       }
     </li>
   )

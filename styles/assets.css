@@ -1,3 +1,5 @@
+
+
 figure {
   margin: 0;
 }
@@ -18,7 +20,7 @@ img {
   vertical-align: text-bottom;
 }
 
-.margins.right-aligned {
+/*.margins.right-aligned {
   padding-left: 25%;
 }
 
@@ -95,6 +97,7 @@ img {
   }
 
   .fullscreen-left-aligned {
+
     grid-template-areas: "asset description"
   }
 
@@ -108,6 +111,91 @@ img {
     object-position: left;
     width: 100%;
     height: 100vh;
-    grid-area: asset;
   }
+}*/
+
+.asset-grid {
+  display: grid;
+  grid-template-columns: 1rem repeat(12, minmax(0, 1fr)) 1rem;
+  grid-template-rows: 1rem repeat(12, minmax(0, 1fr)) 1rem;
+}
+
+.left-aligned .image-container {
+  grid-column-start: 1;
+  grid-column-end: span 10;
+  grid-row-start: 1;
+  grid-row-end: span 10;
+}
+
+.left-aligned .reference {
+  grid-column-start: 11;
+  grid-column-end: 14;
+  grid-row-start: 2;
+  grid-row-end: 14;
+  text-align: right;
+}
+
+.fullscreen-left-aligned .image-container {
+  grid-column-start: 1;
+  grid-column-end: span 9;
+  grid-row-start: 1;
+  grid-row-end: span 14;
+}
+
+.fullscreen-left-aligned .reference {
+  grid-column-start: 11;
+  grid-column-end: 14;
+  grid-row-start: 2;
+  grid-row-end: 14;
+  text-align: right;
+}
+
+.fullscreen-right-aligned .image-container {
+  grid-column-start: 4;
+  grid-column-end: span 14;
+  grid-row-start: 1;
+  grid-row-end: span 14;
+}
+
+.fullscreen-right-aligned .reference {
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-row-start: 2;
+  grid-row-end: 5;
+}
+
+.fullscreen .image-container {
+  grid-column-start: 1;
+  grid-column-end: span 14;
+  grid-row-start: 1;
+  grid-row-end: span 14;
+}
+
+.fullscreen .reference {
+  grid-column-start: 11;
+  grid-column-end: 14;
+  grid-row-start: 2;
+  grid-row-end: 14;
+  text-align: right;
+}
+
+.image-container img {
+  height: 100%;
+  width: 100%;
+}
+
+.left-aligned .image-container img,
+.fullscreen-left-aligned .image-container img {
+  object-fit: contain;
+  object-position: top left;
+}
+
+.right-aligned .image-container img,
+.fullscreen-right-aligned .image-container img {
+  object-fit: contain;
+  object-position: top right;
+}
+
+.fullscreen .image-container img {
+  object-fit: cover;
 }
