@@ -12,6 +12,10 @@
   scroll-snap-type: y mandatory;
 }
 
+.body {
+  max-width: 64rem;
+}
+
 .asset {
   height: 100vh;
   scroll-snap-align: start;

@@ -29,7 +29,9 @@ export default function Item({ data, index, archive }) {
     <article className={styles.container}>
     <section className={styles.introduction + " block soft-breaks"}>
       <Header index={index} />
-      {documentToReactComponents(textField, options)}
+      <div className={styles.body}>
+        {documentToReactComponents(textField, options)}
+      </div>
     </section>
       {assets.map((asset, i) => (
         <Asset data={asset} key={i} i={i} />
