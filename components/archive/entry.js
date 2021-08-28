@@ -52,6 +52,7 @@ export default function Entry({ data }) {
             loader={contentful}
             layout={"fill"}
             objectFit={"contain"}
+            priority="true"
             />
         </div>
       }
