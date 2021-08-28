@@ -2,6 +2,16 @@ h1 {
   font: inherit;
 }
 
+h1::before {
+  content: "–";
+  margin-right: .05em;
+}
+
+h1::after {
+  content: "–";
+  margin-left: .05em;
+}
+
 h2 {
   font: inherit;
   margin-block-start: 2.44em;
