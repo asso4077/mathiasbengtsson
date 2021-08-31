@@ -151,7 +151,7 @@ img {
 }
 
 .fullscreen-left-aligned figcaption {
-  grid-column-start: 11;
+  grid-column-start: 2;
   grid-column-end: 14;
   grid-row-start: 13;
   grid-row-end: span 1;
@@ -175,7 +175,7 @@ img {
 
 .fullscreen-right-aligned figcaption {
   grid-column-start: 2;
-  grid-column-end: span 3;
+  grid-column-end: span 12;
   grid-row-start: 13;
   grid-row-end: span 1;
   align-self: end;
@@ -224,4 +224,14 @@ img {
 
 .fullscreen .image-container img {
   object-fit: cover;
+}
+
+@media screen and (min-width: 670px) {
+  .fullscreen-left-aligned figcaption {
+    grid-column-start: 11;
+  }
+
+  .fullscreen-right-aligned figcaption {
+    grid-column-end: span 3;
+  }
 }

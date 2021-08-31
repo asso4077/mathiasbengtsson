@@ -1,6 +1,7 @@
 import styles from './assets.module.css'
 import { Img } from '../../../lib/image'
 import slugify from 'react-slugify'
+import { use100vh } from 'react-div-100vh'
 
 export default function Asset({ data, i }) {
   if (!data.fields) return null
@@ -14,12 +15,13 @@ export default function Asset({ data, i }) {
   } = data.fields
 
   console.log(slugify(layout))
+  const height = use100vh()
 
 
   const position = rightAligned === true ? " right-aligned " : rightAligned === false ? " left-aligned " : " centered "
   const isFullscreen = fullscreen ? "fullscreen" : "margins"
   return (
-    <figure className={`${styles.asset} asset-grid ${slugify(layout)}`}>
+    <figure className={`${styles.asset} asset-grid ${slugify(layout)}`} style={{ height: height }}>
       {asset?.fields?.file &&
         <Img
           src={asset.fields.file.url}

@@ -5,7 +5,7 @@ import Navigation from './header/navigation'
 export default function Layout({ preview, children, index, page }) {
   return (
     <>
-      <Meta />
+      <Meta installed />
         <Alert preview={preview} />
         <main className={page ?? "index"}>
           {children}
