@@ -1,7 +1,7 @@
 :root {
   --outerMargin: 1rem;
   --totalMaxWidth: 2280px;
-  --mainHeaderHeight: 11rem;
+  --mainHeaderHeight: 11.75rem;
 }
 
 .block {

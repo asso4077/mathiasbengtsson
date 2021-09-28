@@ -2,24 +2,48 @@
 }
 
 .snap {
-  height: 100vh;
-  overflow-y: scroll;
+  width: calc(100vw);
+  overflow-x: scroll;
+  overflow-y: hidden;
   scroll-snap-type: mandatory;
-  scroll-snap-points-y: repeat(100vh);
-  scroll-snap-type: y mandatory;
-}
-
-.assetContainer {
-  width: 100vw;
-  height: 100vh;
-  scroll-snap-align: start;
-  position: relative;
+  scroll-snap-points-x: repeat(calc(100vw));
+  scroll-snap-type: x mandatory;
   display: flex;
   align-items: flex-end;
 }
 
-.asset {
+.assetContainer {
+  position: relative;
+  display: grid;
+  grid-template-rows: 3.9rem 1fr;
+  gap: .5em;
+  height: calc(100vh - var(--mainHeaderHeight) - 5rem);
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+}
+
+.action {
+  flex: 0 0 18rem;
+  text-align: right;
+}
+
+.snap > :last-child {
+  padding-right: 1em;
+}
+
+.assetContainer figcaption {
+  font-size: 1rem;
+  max-width: calc(100vw - 2rem);
+  position: sticky;
+  left: 1rem;
   overflow: hidden;
+  align-self: flex-end;
+  display: inline;
+}
+
+.asset {
+  height: 100%;
+  position: relative;
 }
 
 .landscape {

@@ -1,34 +1,54 @@
 import styles from './studio.module.css'
 import { Img } from '../../lib/image'
 import { useInView } from 'react-intersection-observer';
-import { useEffect } from 'react'
+import { useRef } from 'react'
+import Image from 'next/image'
+import { contentful } from '../../lib/loaders'
+import { richText } from '../../lib/text'
+import { useRefDimensions } from '../../lib/utils'
+import { useRouter } from 'next/router'
 
-export default function Entry({ data, display, i, state }) {
-  const { media, artwork } = data.fields
-  const [progress, setProgress] = state
+export default function Entry({ data, onClick }) {
+  const dimRef = useRef(0)
+  const { media, reference, description } = data.fields
+  const { id } = reference.sys.contentType.sys
+  const { push } = useRouter()
 
-  const { ref, inView, entry } = useInView({
-    threshold: .5,
-  })
+  const ratio = media.fields.file.details.image.width / media.fields.file.details.image.height
 
-  useEffect(() => {
-    if (i !== progress && inView === true) {
-      setProgress(i)
-    }
-  }, [inView])
+  const width = useRefDimensions(dimRef).height * ratio
 
-  const isLandscape = media.fields.file.details.image.width > media.fields.file.details.image.height
+  const handleClick = () => {
+    push({
+      pathname: `/${id === 'article' ? 'essays' : 'archive'}/[entry]`,
+      query: {
+        entry: reference.fields.slug
+      }
+    })
+  }
+
+  console.log(reference)
 
   return (
-    <div className={styles.assetContainer}>
-      <figure className={styles.asset + " " + (isLandscape ? styles.landscape : styles.portrait)} ref={ref}>
-        <Img
-          src={media.fields.file.url}
-          width={media.fields.file.details.image.width}
-          height={media.fields.file.details.image.height}
-          alt={media.fields.description ?? "No description available"}
-          />
-      </figure>
-    </div>
+      <>
+        <figcaption>
+          <div>
+            {reference.fields.title}
+          </div>
+          <div onClick={handleClick} style={{ cursor: "pointer"}}>
+            <i>View {id === 'article' ? 'essay' : 'project'}</i>
+          </div>
+        </figcaption>
+        <div className={styles.asset} style={{ width }} ref={dimRef} onClick={onClick}>
+          <Image
+            src={media.fields.file.url}
+            alt={media.fields.description ?? "No description available"}
+            loader={contentful}
+            layout={'fill'}
+            objectFit={'cover'}
+            objectPosition={'center'}
+            />
+        </div>
+      </>
   )
 }
