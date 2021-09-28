@@ -7,7 +7,12 @@
 .body {
   position: relative;
   margin-top: 1rem;
-  width: calc(100vw - 3rem);
+  width: calc(100vw - 2rem);
+}
+
+.body a:link,
+.body a:visited {
+  text-decoration: underline;
 }
 
 .inline {
@@ -49,6 +54,9 @@
   margin-left: .25em;
 }
 
+.inlineRef:hover .figure {
+  z-index: 100;
+}
 
 
 .asset {
@@ -70,6 +78,10 @@
   transform: 0;
 }
 
+.bodyView p:first-child {
+  margin-top: 0;
+}
+
 .fullscreen {
   margin-top: 1em;
   margin-left: -1rem;
@@ -84,7 +96,7 @@
 }
 
 .fullscreen .caption {
-  margin: .25rem var(--outerMargin) 0 var(--outerMargin);
+  margin: .25rem var(--outerMargin) 0 0;
 }
 
 .toggle {
@@ -129,7 +141,7 @@
   .fullscreen {
     margin-top: 1em;
     margin-left: calc(-100% - 5rem);
-    margin-right: -1rem;
+    margin-right: -2rem;
     position: relative;
   }
 

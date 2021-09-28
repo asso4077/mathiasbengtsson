@@ -23,8 +23,6 @@ function Li({ data }) {
   const archive = router.query.entry && (slug === "archive") && (router.pathname.includes('archive'))
   const essays = router.query.entry && (slug === "essays") && (router.pathname.includes('essays'))
 
-  console.log(data.fields)
-
   return (
     <li className={active || archive || essays ? `active` : ``}>
       <Link href={`/${slug}`}>

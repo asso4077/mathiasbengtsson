@@ -28,6 +28,8 @@ export default function Item({ data, index }) {
 
   const figures = article.content.filter(k => k.content.some(f => f.nodeType === "embedded-entry-inline"))
 
+  console.log(figures)
+
   const options = {
     renderNode: {
       [BLOCKS.EMBEDDED_ENTRY]: (node) => {
@@ -51,7 +53,7 @@ export default function Item({ data, index }) {
     <article className={styles.container + " soft-breaks block"}>
       <header className={"col-1-2"}>
         <div>{objectToInlineList(authors)}:</div>
-        <h1 style={{ margin: 0 }}>–{title}–</h1>
+        <h1 style={{ margin: 0 }}>{title}</h1>
       </header>
       <section className={`${styles.body} col-1-2 ${showRef ? styles.refView : styles.bodyView}`} {...handlers}>
         <div>
