@@ -87,6 +87,11 @@ a {
      hyphenate-limit-zone: 8%;
  }
 
+ .uppercase {
+   text-transform: uppercase;
+   letter-spacing: .25rem;
+ }
+
  .no-hyphens {
    hyphens: none;
  }

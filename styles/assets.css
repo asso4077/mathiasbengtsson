@@ -120,7 +120,12 @@ img {
   grid-template-rows: 1rem repeat(12, minmax(0, 1fr)) 1rem;
 }
 
-.left-aligned .image-container {
+.video-container {
+  position: relative;
+}
+
+.left-aligned .image-container,
+.left-aligned .video-container {
   grid-column-start: 1;
   grid-column-end: span 10;
   grid-row-start: 1;
@@ -135,7 +140,8 @@ img {
   text-align: right;
 }
 
-.fullscreen-left-aligned .image-container {
+.fullscreen-left-aligned .image-container,
+.fullscreen-left-aligned .video-container {
   grid-column-start: 1;
   grid-column-end: span 9;
   grid-row-start: 1;
@@ -159,7 +165,8 @@ img {
   align-self: end;
 }
 
-.fullscreen-right-aligned .image-container {
+.fullscreen-right-aligned .image-container,
+.fullscreen-right-aligned .video-container {
   grid-column-start: 5;
   grid-column-end: 15;
   grid-row-start: 1;
@@ -181,7 +188,8 @@ img {
   align-self: end;
 }
 
-.fullscreen .image-container {
+.fullscreen .image-container,
+.fullscreen .video-container {
   grid-column-start: 1;
   grid-column-end: span 14;
   grid-row-start: 1;
@@ -205,24 +213,30 @@ img {
   align-self: end;
 }
 
-.image-container img {
+.image-container img,
+.video-container video {
   height: 100%;
   width: 100%;
 }
 
 .left-aligned .image-container img,
-.fullscreen-left-aligned .image-container img {
+.left-aligned .video-container video,
+.fullscreen-left-aligned .image-container img,
+.fullscreen-left-aligned .video-container video {
   object-fit: contain;
   object-position: top left;
 }
 
 .right-aligned .image-container img,
-.fullscreen-right-aligned .image-container img {
+.right-aligned .video-container video,
+.fullscreen-right-aligned .image-container img,
+.fullscreen-right-aligned .video-container video {
   object-fit: contain;
   object-position: top right;
 }
 
-.fullscreen .image-container img {
+.fullscreen .image-container img,
+.fullscreen .video-container video {
   object-fit: cover;
 }
 
@@ -234,4 +248,26 @@ img {
   .fullscreen-right-aligned figcaption {
     grid-column-end: span 3;
   }
+}
+
+.controls .container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+  padding: 1rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  mix-blend-mode: difference;
+  opacity: 0;
+}
+
+.controls:hover .container,
+.controls.paused .container {
+  opacity: 1;
 }
