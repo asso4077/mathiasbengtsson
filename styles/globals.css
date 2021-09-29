@@ -18,6 +18,33 @@
   font-style: italic;
 }
 
+@font-face {
+  font-family: 'Panama Monospace';
+  src: url('/assets/bradford/PanamaMonospaceRegular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Panama Monospace';
+  src: url('/assets/bradford/PanamaMonospaceIranic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+}
+
+.hr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2em;
+  overflow: hidden;
+}
+
+.hr > span {
+  flex: 0 0 auto;
+  margin: .25em;
+}
+
 @media only screen and (min-width: 670px) {
   :root {
     font-size: 100%;
@@ -126,18 +153,7 @@ a {
   padding: .25rem;
 }
 
-.hr {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 2em;
-  overflow: hidden;
-}
 
-.hr > span {
-  flex: 0 0 auto;
-  margin: .25em;
-}
 
 @media screen and (max-width: 669px) {
   .biography article:last-of-type {

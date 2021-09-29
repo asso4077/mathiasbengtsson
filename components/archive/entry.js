@@ -3,6 +3,8 @@ import { useRouter } from 'next/router'
 import { formatDate } from '../../lib/utils'
 import { useState } from 'react'
 import Image from 'next/image'
+import { contentful } from '../../lib/loaders'
+import { HR } from '../ornament/'
 
 export default function Entry({ data }) {
   const [hover, setHover] = useState(false)
@@ -18,17 +20,6 @@ export default function Entry({ data }) {
     slug
   } = data.fields
 
-  const contentful = ({ src, quality, width }) => {
-    const params = [
-      `w=${width}`,
-      `q=${quality ?? 75}`,
-      `fm=jpg`,
-      `fl=progressive`
-    ]
-
-    return `${src}?${params.join('&')}`
-  }
-
   return (
     <li
       className={styles.listItem}
@@ -39,13 +30,9 @@ export default function Entry({ data }) {
       onMouseOver={() => setHover(true)}
       onMouseOut={() => setHover(false)}
       >
-      <span className={styles.date}>{new Date(releaseDate).getFullYear()}</span>
-      <span className={styles.name}>{name}</span>
-      <span className={`${styles.type} md`}>{type}</span>
-      <span className={styles.material}>{material}</span>
-      <span className={`${styles.dimensions} md`}>{dimensions}</span>
+      <HR className={`sm`} />
       {heroImage?.fields &&
-        <div className={`${styles.popUpAsset} ${hover ? styles.active : styles.inactive}`}>
+        <div className={`${styles.heroImage} ${hover ? styles.active : styles.inactive}`}>
           <Image
             src={heroImage?.fields.file.url}
             alt={heroImage?.fields.description ?? "No description available of this image"}
@@ -56,6 +43,11 @@ export default function Entry({ data }) {
             />
         </div>
       }
+      <div className={styles.date}>{new Date(releaseDate).getFullYear()}</div>
+      <div className={styles.name}>{name}</div>
+      <div className={`${styles.type} md`}>{type}</div>
+      <div className={styles.material}>{material}</div>
+      <div className={`${styles.dimensions} md`}>{dimensions}</div>
     </li>
   )
 }
