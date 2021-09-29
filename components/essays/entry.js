@@ -1,4 +1,4 @@
-import styles from './archive.module.css'
+import styles from './essays.module.css'
 import { useRouter } from 'next/router'
 import { objectToInlineList, formatDate } from '../../lib/utils'
 
@@ -21,7 +21,7 @@ export default function Entry({ data }) {
       })}
       >
       <span>{objectToInlineList(authors)}:</span>
-      <span>{title}</span>
+      <span>&ldquo;{title}&rdquo;</span>
       <span>{formatDate(date)}</span>
     </li>
   )

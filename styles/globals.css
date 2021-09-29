@@ -126,6 +126,19 @@ a {
   padding: .25rem;
 }
 
+.hr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2em;
+  overflow: hidden;
+}
+
+.hr > span {
+  flex: 0 0 auto;
+  margin: .25em;
+}
+
 @media screen and (max-width: 669px) {
   .biography article:last-of-type {
     border-top: 1px solid black;
