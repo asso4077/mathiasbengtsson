@@ -4,6 +4,7 @@ import Asset from './asset'
 import styles from './assets.module.css'
 import Header from '../../header/index'
 import Archive from '../index'
+import { HR } from '../../ornament/'
 
 export default function Item({ data, index, archive }) {
   const {
@@ -29,9 +30,12 @@ export default function Item({ data, index, archive }) {
     <article className={styles.container}>
     <section className={styles.introduction + " block soft-breaks"}>
       <Header index={index} />
-      <div className={styles.body}>
-        {documentToReactComponents(textField, options)}
+    <div className={styles.body}>
+    <HR />
+      {documentToReactComponents(textField, options)}
+      <HR />
       </div>
+
     </section>
       {assets.map((asset, i) => (
         <Asset data={asset} key={i} i={i} />

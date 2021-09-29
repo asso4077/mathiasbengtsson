@@ -1,13 +1,12 @@
 import Entry from './entry'
 import Featured from './featured'
 import styles from './essays.module.css'
+import { HR } from '../ornament/'
 
 export default function Essays({ data }) {
 
   const featured = data.components.filter(k => k.sys.contentType.sys.id === 'slide')
   const list = data.components.filter(k => k.sys.contentType.sys.id === 'article')
-
-  console.log(featured)
 
   return (
     <section className="block">
@@ -32,18 +31,5 @@ const Container = ({ children }) => {
       {children}
       <HR />
     </section>
-  )
-}
-
-const HR = () => {
-  const dashes = []
-  for (let i = 0; i < 200; i++) dashes.push('—')
-
-  return (
-    <div className={`hr`}>
-      {
-        dashes.map((dash, i) => <span>{dash}</span>)
-      }
-    </div>
   )
 }
