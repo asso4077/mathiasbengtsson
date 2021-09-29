@@ -19,4 +19,6 @@
   mix-blend-mode: exclusion;
   z-index: 5;
   color: white;
+  text-align: center;
+  width: 100%;
 }

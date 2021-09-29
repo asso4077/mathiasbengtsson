@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Layout from '../components/layout'
 import { fetchIndex, fetchEntries } from '../lib/api'
-import { APP_NAME, HOME_OG_IMAGE_URL, PAGE_DESCRIPTION } from '../lib/const'
+import { APP_NAME, OG_IMAGE_URL, PAGE_DESCRIPTION } from '../lib/const'
 import { getRandomInt } from '../lib/utils'
 import Figure from '../components/index/figure'
 
@@ -12,7 +12,7 @@ export default function Home({ preview, index, page }) {
         <title>
           {APP_NAME}
         </title>
-        <meta property="og:image" content={HOME_OG_IMAGE_URL} />
+        <meta property="og:image" content={OG_IMAGE_URL} />
         <meta
           name="description"
           content={page.description ?? PAGE_DESCRIPTION}

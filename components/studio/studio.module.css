@@ -17,7 +17,7 @@
   display: grid;
   grid-template-rows: 3.9rem 1fr;
   gap: .5em;
-  height: calc(100vh - var(--mainHeaderHeight) - 3rem);
+  height: calc(100vh - var(--mainHeaderHeight) - 4rem);
   padding-left: 1rem;
   padding-bottom: 1rem;
 }

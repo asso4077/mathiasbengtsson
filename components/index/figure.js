@@ -13,10 +13,12 @@ export default function Figure({ data }) {
   return (
     <figure
       className={`${styles.container} ${isLandscape ? styles.landscape : styles.portrait}`}
-      style={{ width: "100vw", height: "100vh", background: `url(${asset.fields.file.url})`, backgroundSize: "cover" }}
+      style={{ width: "100vw", height: "100vh", backgroundImage: `url(${asset.fields.file.url})`, backgroundSize: "cover" }}
       onClick={() => router.push("/studio")}>
       <figcaption className={styles.caption}>
-        Click or press to enter
+        Mathias Bengtsson<br />
+        Technology and Metamorphosis<br /><br />
+        (Press to enter)
       </figcaption>
     </figure>
   )
