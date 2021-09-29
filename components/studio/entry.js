@@ -27,13 +27,11 @@ export default function Entry({ data, onClick }) {
     })
   }
 
-  console.log(reference)
-
   return (
       <>
         <figcaption>
-          <div>
-            {reference.fields.title}
+          <div className={`ellipsis-overflow`}>
+            {reference.fields.name ?? reference.fields.title}
           </div>
           <div onClick={handleClick} style={{ cursor: "pointer"}}>
             <i>View {id === 'article' ? 'essay' : 'project'}</i>

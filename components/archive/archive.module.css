@@ -1,8 +1,8 @@
 .list {
   margin: var(--outerMargin);
   text-align: center;
-  line-height: 1.2em;
   margin-top: -1em;
+  padding-bottom: 4rem;
 }
 
 .listItem {
@@ -11,8 +11,12 @@
 
 .heroImage {
   position: relative;
-  padding-bottom: 30%;
+  padding-bottom: 75%;
   margin-bottom: .5rem;
+}
+
+.heroImage img {
+  object-fit: cover !important;
 }
 
 
@@ -20,7 +24,7 @@
 @media screen and (min-width: 670px) {
   .list {
     padding-top: 4em;
-    background: white;
+    background: var(--background);
     max-height: 100vh;
     overflow: scroll;
     position: absolute;
@@ -28,15 +32,24 @@
     right: 0;
     bottom: 0;
     text-align: left;
+    padding-bottom: 0;
   }
 
-  .listItem {
+  .listItem, .listHeader {
     position: relative;
     display: grid;
     justify-content: space-between;
-    cursor: pointer;
-    grid-template-columns: 2.5em 1.5fr auto;
+    grid-template-columns: 2.5em 1fr .6fr 1fr 16em;
     gap: .5em;
+  }
+
+  .listItem {
+    cursor: pointer;
+  }
+
+  .listHeader {
+    text-decoration: underline;
+    margin-bottom: 1rem;
   }
 
   .listItem div:not(.heroImage) {
@@ -60,15 +73,12 @@
     padding-bottom: 0;
   }
 
-  .listItem {
-    grid-template-columns: 2.5em 1fr .6fr 1fr 16em;
-  }
-
   .listItem .material {
     text-align: inherit;
   }
 
-  .listItem .dimensions {
+  .listItem .dimensions,
+  .listHeader .dimensions {
     text-align: right;
   }
 

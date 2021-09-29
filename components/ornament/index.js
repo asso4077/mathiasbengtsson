@@ -1,9 +1,11 @@
-export const HR = ({ className }) => {
+export const HR = ({ className, style }) => {
   const dashes = []
   for (let i = 0; i < 200; i++) dashes.push('—')
 
   return (
-    <div className={`hr ${className}`}>
+    <div
+      style={style}
+      className={`hr ${className}`}>
       {
         dashes.map((dash, i) => <span>{dash}</span>)
       }

@@ -43,10 +43,15 @@ export default function Entry({ data }) {
             />
         </div>
       }
-      <div className={styles.date}>{new Date(releaseDate).getFullYear()}</div>
-      <div className={styles.name}>{name}</div>
+      <div className={`sm`}>
+        &ldquo;{name}&rdquo;, {new Date(releaseDate).getFullYear()}<br />
+        {type} / {material}<br />
+        {dimensions}<br />
+      </div>
+      <div className={`${styles.date} md`}>{new Date(releaseDate).getFullYear()}</div>
+      <div className={`${styles.name} md`}>&ldquo;{name}&rdquo;</div>
       <div className={`${styles.type} md`}>{type}</div>
-      <div className={styles.material}>{material}</div>
+      <div className={`${styles.material} md`}>{material}</div>
       <div className={`${styles.dimensions} md`}>{dimensions}</div>
     </li>
   )

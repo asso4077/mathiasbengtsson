@@ -1,5 +1,6 @@
 import { BLOCKS } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { HR } from '../ornament/'
 
 export default function Entry({ data }) {
   const { article, slug } = data.fields
@@ -12,6 +13,7 @@ export default function Entry({ data }) {
   return (
     <article className={slug}>
       {documentToReactComponents(article, options)}
+      <HR className={'sm'} style={{ marginBottom: '1rem' }} />
     </article>
   )
 }
