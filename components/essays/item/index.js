@@ -1,13 +1,14 @@
 import { BLOCKS, INLINES } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import styles from './item.module.css'
-import { objectToInlineList, formatDate } from '../../../lib/utils'
+import { objectToInlineList, formatDate, useWindowSize } from '../../../lib/utils'
 import Reference from './reference'
 import { useState } from 'react'
 import { useSwipeable } from 'react-swipeable'
 
 export default function Item({ data, index }) {
   const [showRef, setShowRef] = useState(false)
+  const [refNo, setRefNo] = useState(0)
   const {
     authors,
     date,
@@ -17,8 +18,10 @@ export default function Item({ data, index }) {
     slug
   } = data
 
+  const [windowWidth, windowHeight] = useWindowSize()
+
   const handlers = useSwipeable({
-    onSwipedLeft: () => setShowRef(true),
+    onSwipedLeft: () => windowWidth < 670 ? setShowRef(true) : null,
     onSwipedRight: () => setShowRef(false),
     preventDefaultTouchmoveEvent: true,
     trackMouse: true
@@ -27,8 +30,6 @@ export default function Item({ data, index }) {
   const Toggle = ({ left, right }) => <div className={styles.toggle} style={left ? { left: 0 } : { right: 0 }}  onClick={() => setShowRef(!showRef)} />
 
   const figures = article.content.filter(k => k.content.some(f => f.nodeType === "embedded-entry-inline"))
-
-  console.log(figures)
 
   const options = {
     renderNode: {
@@ -42,12 +43,12 @@ export default function Item({ data, index }) {
       [INLINES.EMBEDDED_ENTRY]: (node) => {
         const { id } = node.data.target.sys.contentType.sys;
         if (id === "media") {
-          return <Reference {...node.data.target.fields} i={figures.findIndex(f => f.content.some(k => k.data?.target?.sys?.id === node.data.target.sys.id))} anchor />
+          return <Reference {...node.data.target.fields} refNo={refNo} i={figures.findIndex(f => f.content.some(k => k.data?.target?.sys?.id === node.data.target.sys.id))} anchor />
         }
         return <div />
       }
     }
-  };
+  }
 
   return (
     <article className={styles.container + " soft-breaks block"}>

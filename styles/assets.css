@@ -163,6 +163,7 @@ img {
   grid-row-end: span 1;
   text-align: right;
   align-self: end;
+  mix-blend-mode: difference;
 }
 
 .fullscreen-right-aligned .image-container,
@@ -202,6 +203,7 @@ img {
   grid-row-start: 2;
   grid-row-end: 14;
   text-align: right;
+  filter: invert(1);
 }
 
 .fullscreen figcaption,
@@ -211,6 +213,7 @@ img {
   grid-row-start: 13;
   grid-row-end: span 1;
   align-self: end;
+  filter: invert(1);
 }
 
 .image-container img,

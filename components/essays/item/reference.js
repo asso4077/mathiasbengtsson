@@ -4,19 +4,17 @@ import { Img } from '../../../lib/image'
 import slugify from 'react-slugify'
 
 export default function Reference(props) {
-  console.log(props)
-  const { asset, caption, layout, i, anchor } = props
+  const { asset, caption, layout, i, anchor, refNo } = props
 
   if (!asset) {
     return <TextOnly data={caption} i={i} />
   }
 
-  console.log(i)
   const isLandscape = asset.fields.file.details.image.width >= asset.fields.file.details.image.height
   const isFullscreen = slugify(layout).includes('fullscreen')
 
   return (
-    <span className={styles.inlineRef}>
+    <span className={`${styles.inlineRef} ${anchor ? styles.anchor : styles.noAnchor}`}>
       {anchor && `(${i + 1})`}
     <div className={`figure ${isLandscape ? styles.landscape : styles.portrait} ${isFullscreen && isLandscape ? styles.fullscreen : styles.inline}`}>
       <div className={styles.reference}>
