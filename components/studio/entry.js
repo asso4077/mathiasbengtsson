@@ -7,6 +7,7 @@ import { contentful } from '../../lib/loaders'
 import { richText } from '../../lib/text'
 import { useRefDimensions } from '../../lib/utils'
 import { useRouter } from 'next/router'
+import {isMobile} from 'react-device-detect'
 
 export default function Entry({ data, onClick }) {
   const dimRef = useRef(0)
@@ -37,7 +38,7 @@ export default function Entry({ data, onClick }) {
             <i>View {id === 'article' ? 'essay' : 'project'}</i>
           </div>
         </figcaption>
-        <div className={styles.asset} style={{ width }} ref={dimRef} onClick={onClick}>
+        <div className={styles.asset} style={{ width }} ref={dimRef} onClick={isMobile ? handleClick : onClick}>
           <Image
             src={media.fields.file.url}
             alt={media.fields.description ?? "No description available"}
