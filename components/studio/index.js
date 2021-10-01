@@ -26,6 +26,7 @@ export default function Studio({ data }) {
               key={i}
               className={styles.assetContainer}
               ref={(e) => { refs.current[i] = e }}
+              style={{ cursor: "pointer" }}
               >
               <Entry
                 data={entry}
