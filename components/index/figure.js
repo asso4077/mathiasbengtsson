@@ -17,7 +17,7 @@ export default function Figure({ data }) {
       onClick={() => router.push("/studio")}>
       <figcaption className={styles.caption}>
         Mathias Bengtsson<br />
-        Technology and Metamorphosis<br /><br />
+        Technology <i>and</i> Metamorphosis<br /><br />
         (Press to enter)
       </figcaption>
     </figure>
