@@ -30,11 +30,11 @@ export default function Entry({ data, onClick }) {
 
   return (
       <>
-        <figcaption>
+        <figcaption onClick={handleClick} style={{ cursor: "pointer"}}>
           <div className={`ellipsis-overflow`}>
             {reference.fields.name ?? reference.fields.title}
           </div>
-          <div onClick={handleClick} style={{ cursor: "pointer"}}>
+          <div>
             <i>View {id === 'article' ? 'essay' : 'project'}</i>
           </div>
         </figcaption>
