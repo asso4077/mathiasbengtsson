@@ -13,15 +13,13 @@
 }
 
 .body {
-  text-align: center;
+  text-align: left;
   margin-top: -1em;
   margin-bottom: -1em;
 }
 
 .body > *:not(div) {
   max-width: 64rem;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .body h1:first-of-type {

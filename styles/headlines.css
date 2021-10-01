@@ -28,3 +28,13 @@ h3 {
 .contact h2::after {
   content: "–";
 }
+
+.exhibitions h2::before {
+  content: "–";
+  margin-right: .05em;
+}
+
+.exhibitions h2::after {
+  content: "–";
+  margin-left: .05em;
+}

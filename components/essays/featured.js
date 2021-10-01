@@ -35,9 +35,15 @@ export default function Featured({ data }) {
       </figure>
       <div className={styles.info}>
         <div>
-        &ldquo;{reference.fields.title}&rdquo;<br />
-        by  {objectToInlineList(reference.fields.authors)} ({formatDate(reference.fields.date)})<br />
-
+          <div
+            style={{ cursor: 'pointer' }}
+            onClick={() => router.push({
+              pathname: "/essays/[essay]",
+              query: { essay: reference.fields.slug },
+            })}>
+            &ldquo;{reference.fields.title}&rdquo;
+          </div>
+          by {objectToInlineList(reference.fields.authors)} ({formatDate(reference.fields.date)})<br />
         </div>
         <div
           style={{ cursor: 'pointer' }}

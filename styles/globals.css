@@ -41,6 +41,7 @@
   height: 2em;
   overflow: hidden;
   max-width: calc(100vw - var(--outerMargin) - var(--outerMargin));
+  pointer-events: none;
 }
 
 .hr > span {
