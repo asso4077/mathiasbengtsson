@@ -5,6 +5,7 @@ export default function Meta({ installed }) {
   if (installed) {
     return (
       <Head>
+<<<<<<< HEAD
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -34,6 +35,7 @@ export default function Meta({ installed }) {
         <meta name="theme-color" content="#000" />
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
         <meta property="og:image" content={OG_IMAGE_URL} />
+        <meta property="og:image" content="/public/mathiasbengtsson.jpg" />
       </Head>
     )
   }
