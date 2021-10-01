@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { APP_NAME, HOME_OG_IMAGE_URL } from '../lib/const'
+import { APP_NAME, OG_IMAGE_URL } from '../lib/const'
 
 export default function Meta({ installed }) {
   if (installed) {
@@ -33,7 +33,7 @@ export default function Meta({ installed }) {
         <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
         <meta name="theme-color" content="#000" />
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-        <meta property="og:image" content={HOME_OG_IMAGE_URL} />
+        <meta property="og:image" content={OG_IMAGE_URL} />
       </Head>
     )
   }

@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Layout from '../../components/layout'
-import { APP_NAME, HOME_OG_IMAGE_URL, PAGE_DESCRIPTION } from '../../lib/const'
+import { APP_NAME, OG_IMAGE_URL, PAGE_DESCRIPTION } from '../../lib/const'
 import { fetchEntries, fetchIndex } from '../../lib/api'
 import Item from '../../components/essays/item/index'
 import Header from '../../components/header/index'
@@ -17,7 +17,7 @@ export default function Page({ page, preview, index }) {
         <title>
           {APP_NAME}: {page.title}
         </title>
-        <meta property="og:image" content={HOME_OG_IMAGE_URL} />
+        <meta property="og:image" content={OG_IMAGE_URL} />
         <meta
           name="description"
           content={page.description ?? PAGE_DESCRIPTION}
