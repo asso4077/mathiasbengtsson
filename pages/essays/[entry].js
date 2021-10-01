@@ -34,7 +34,7 @@ export default function Page({ page, preview, index }) {
 }
 
 export async function getStaticProps({ params, preview = false }) {
-  const query = { content_type: 'article', 'fields.slug': params.entry, limit: 1 }
+  const query = { content_type: 'article', 'fields.slug': params.entry, limit: 1, include: 5 }
   const page = await fetchEntries(preview, query)
 
   const index = (await fetchIndex(preview)) ?? []
@@ -42,8 +42,8 @@ export async function getStaticProps({ params, preview = false }) {
   return {
     props: {
       preview,
-      page: page.items[0].fields ?? null,
-      index: index.items[0].fields
+      page: page?.items[0]?.fields ?? null,
+      index: index?.items[0]?.fields ?? null
     },
   }
 }
