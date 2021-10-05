@@ -36,7 +36,7 @@
 
 .hr {
   display: flex;
-display: none;
+visability: hidden;
   justify-content: center;
   align-items: center;
   height: 2em;
