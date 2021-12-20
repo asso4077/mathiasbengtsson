@@ -7,7 +7,7 @@ import slugify from 'react-slugify'
 import { use100vh } from 'react-div-100vh'
 
 export default function Asset({ data, i }) {
-  if (!data.fields.asset) return null
+  if (!data?.fields?.asset) return null
 
   const {
     asset,

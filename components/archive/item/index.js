@@ -37,7 +37,7 @@ export default function Item({ data, index, archive }) {
       </div>
 
     </section>
-      {assets.map((asset, i) => (
+      {assets && assets.map((asset, i) => (
         <Asset data={asset} key={i} i={i} />
       ))}
       <div className={styles.related}>
